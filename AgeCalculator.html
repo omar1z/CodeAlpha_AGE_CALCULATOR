@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Age Calculator</title>
+</head>
+<script type="text/javascript">
+    function func1() {
+        let currentDate = new Date();
+        let y1 = new Date(document.getElementById('t1').value);
+        if (y1.getFullYear() > currentDate.getFullYear() || y1.getMonth() > currentDate.getMonth()) {
+            alert("Invalid date of birth.");
+        } else {
+            let z = currentDate.getFullYear() - y1.getFullYear();
+            let y = currentDate.getMonth() - y1.getMonth();
+            if(y < 0){
+                y*=(-1);
+                document.getElementById('new1').innerHTML = "Your age is :" + (z-1) + " and " + (12-y) + " months";
+            }
+            else{
+                document.getElementById('new1').innerHTML = "Your age is :" + z + " and " + y + " months";
+            }
+        }
+    }
+</script>
+<body style="background: skyblue;">
+    <form>
+        <div style="background: black; color: white;height: 100px;width: 200px">
+            Enter your date of birth :<br>
+            <input type="date" id="t1">
+            <input type="button" onclick="func1()" value="calculate">
+        </div>
+        <div style="background: white; color: black;height: 50px;width: 200px" id="new1">
+        </div>
+    </form>
+</body>
+</html>
